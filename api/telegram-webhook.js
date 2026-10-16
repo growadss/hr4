@@ -56,7 +56,7 @@ module.exports = async (req, res) => {
       }
     ]
   };
-payload.test_event_code = "TEST60643";
+  
   try {
     const url =
       `https://graph.facebook.com/vXX.X/${pixelId}/events` +
