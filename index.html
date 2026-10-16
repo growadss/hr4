@@ -420,12 +420,12 @@
       <summary lang="en">Privacy &amp; tracking</summary>
 
       <p lang="en">
-        This page uses Meta Pixel for PageView,
-        Subscribe on a Telegram button click or automatic redirect,
-        and a separate TelegramAutoRedirect event.
-        Neither action confirms channel membership.
+        This page uses Meta Pixel for PageView and
+        TelegramAutoRedirect tracking. Telegram join requests
+        may be tracked separately through Meta Conversions API.
+        A redirect does not confirm channel membership.
         Meta may process device, cookie and connection information.
-        Telegram and your hosting provider process information
+        Telegram and the hosting provider process information
         under their own policies.
       </p>
     </details>
@@ -442,7 +442,6 @@
     const message = document.getElementById('redirect-message');
 
     let intervalId;
-    let clickTracked = false;
 
     function stopCountdown(text) {
       window.clearInterval(intervalId);
@@ -450,24 +449,22 @@
       message.hidden = false;
     }
 
+    // Manual button click:
+    // Open Telegram without firing Subscribe.
     cta.addEventListener('click', () => {
-      // Stop the pending redirect after a manual click.
       stopCountdown(
         'Telegram link opened. Use the button again if needed.'
       );
-
-      // Subscribe fires once per page load on a button click.
-      if (!clickTracked && typeof window.fbq === 'function') {
-        window.fbq('track', 'Subscribe');
-        clickTracked = true;
-      }
     });
 
+    // Automatic redirect:
+    // Track TelegramAutoRedirect, not Subscribe.
     if (AUTO_REDIRECT_SECONDS > 0) {
       message.hidden = false;
       timer.textContent = String(AUTO_REDIRECT_SECONDS);
 
-      const deadline = Date.now() + AUTO_REDIRECT_SECONDS * 1000;
+      const deadline =
+        Date.now() + AUTO_REDIRECT_SECONDS * 1000;
 
       intervalId = window.setInterval(() => {
         const remaining = Math.max(
@@ -480,16 +477,15 @@
         if (remaining === 0) {
           window.clearInterval(intervalId);
 
-          // Auto-redirect fires Subscribe (once) plus its custom event.
+          // Only track the automatic redirect.
           if (typeof window.fbq === 'function') {
-            if (!clickTracked) {
-              window.fbq('track', 'Subscribe');
-              clickTracked = true;
-            }
-            window.fbq('trackCustom', 'TelegramAutoRedirect');
+            window.fbq(
+              'trackCustom',
+              'TelegramAutoRedirect'
+            );
           }
 
-          // Short pause so the pixel request can be sent before leaving.
+          // Redirect to Telegram.
           window.setTimeout(() => {
             window.location.assign(TELEGRAM_URL);
           }, 300);
