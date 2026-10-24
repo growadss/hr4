@@ -1,510 +1,465 @@
-
 <!DOCTYPE html>
 <html lang="kn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050b18">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071424">
+<meta name="description" content="Harish Academy Kannada stock market learning community. Learn chart concepts, volume profile and risk awareness.">
+<title>Harish Academy | Kannada Market Learning</title>
 
-  <title>Harish Academy | Systematic Market Learning</title>
-  <meta name="description" content="ಕನ್ನಡದಲ್ಲಿ ವಾಲ್ಯೂಮ್ ಪ್ರೊಫೈಲ್ ಮತ್ತು ಚಾರ್ಟ್ ಪ್ಯಾಟರ್ನ್ ಶಿಕ್ಷಣ. Harish Academy Free Telegram Study Group.">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;
+n=f.fbq=function(){
+n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
+};
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+t=b.createElement(e);t.async=!0;t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s) {
-      if(f.fbq) return;
-      n=f.fbq=function() {
-        n.callMethod
-          ? n.callMethod.apply(n,arguments)
-          : n.queue.push(arguments);
-      };
-      if(!f._fbq) f._fbq=n;
-      n.push=n;
-      n.loaded=!0;
-      n.version='2.0';
-      n.queue=[];
-      t=b.createElement(e);
-      t.async=!0;
-      t.src=v;
-      s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s);
-    }(
-      window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js'
-    );
+fbq('init','1756323715672370');
+fbq('track','PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1756323715672370&amp;ev=PageView&amp;noscript=1">
+</noscript>
+<!-- End Meta Pixel Code -->
 
-    fbq('init', '1756323715672370');
-    fbq('track', 'PageView');
-  </script>
-  <!-- End Meta Pixel Code -->
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#071424;
+  --cyan:#59d8f5;
+  --gold:#ffd37e;
+  --text:#f8fbff;
+  --muted:#c5d3e4;
+}
 
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg-dark: #050b18;
-      --card-bg: #0a142a;
-      --gold: #fbbf24;
-      --cyan: #38bdf8;
-      --text-main: #f8fafc;
-      --text-sub: #bdcbe1;
-      --border-line: rgba(245,158,11,.35);
-    }
+*{box-sizing:border-box}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+html{
+  min-height:100%;
+  background:var(--bg);
+}
 
-    html {
-      min-height: 100%;
-      background: var(--bg-dark);
-    }
+body{
+  margin:0;
+  min-height:100vh;
+  min-height:100dvh;
+  padding:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-x:hidden;
+  color:var(--text);
+  font-family:"Noto Sans Kannada","Tunga",
+    "Nirmala UI",system-ui,sans-serif;
+  background:
+    radial-gradient(ellipse at 12% 10%,
+      rgba(40,156,220,.22),transparent 48%),
+    radial-gradient(ellipse at 90% 85%,
+      rgba(245,173,67,.12),transparent 48%),
+    linear-gradient(145deg,#06101f,#102b40,#071424);
+}
 
-    body {
-      min-height: 100vh;
-      padding: 24px 16px;
-      background: radial-gradient(
-        circle at 50% 12%,
-        #0e2452 0%,
-        #07132c 55%,
-        var(--bg-dark) 100%
-      );
-      color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Noto Sans Kannada", sans-serif;
-      font-size: 16px;
-      line-height: 1.65;
-    }
+.card{
+  width:100%;
+  max-width:390px;
+  margin:auto;
+  padding:21px 19px 18px;
+  text-align:center;
+  border-radius:24px;
+  border:1px solid rgba(110,213,245,.23);
+  background:linear-gradient(145deg,
+    rgba(255,255,255,.105),
+    rgba(255,255,255,.035));
+  box-shadow:0 18px 55px rgba(0,0,0,.35);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
 
-    .card {
-      width: 100%;
-      max-width: 440px;
-      margin: 0 auto;
-      padding: 26px 22px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-line);
-      border-radius: 26px;
-      text-align: center;
-      box-shadow: 0 25px 60px -12px rgba(0,0,0,.65);
-    }
+.logo{
+  width:82px;
+  height:82px;
+  padding:3px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  background:linear-gradient(135deg,
+    var(--gold),var(--cyan));
+  box-shadow:0 0 22px rgba(89,216,245,.25);
+}
 
-    .learning-chip {
-      display: inline-block;
-      padding: 4px 14px;
-      margin-bottom: 16px;
-      background: rgba(245,158,11,.14);
-      border: 1px solid rgba(245,158,11,.45);
-      border-radius: 50px;
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 700;
-    }
+.logo img{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  background:#112c40;
+}
 
-    .avatar-wrapper {
-      width: 86px;
-      height: 86px;
-      margin: 0 auto 14px;
-      padding: 3px;
-      border-radius: 50%;
-      background: linear-gradient(
-        135deg,var(--gold),#ef4444,var(--cyan)
-      );
-    }
+.fallback{
+  display:none;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  align-items:center;
+  justify-content:center;
+  background:#112c40;
+  color:var(--gold);
+  font:800 25px system-ui,sans-serif;
+}
 
-    .avatar-wrapper img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #061226;
-    }
+.tagline{
+  margin:0 0 8px;
+  color:var(--gold);
+  font:700 10px system-ui,sans-serif;
+  letter-spacing:1.5px;
+}
 
-    #logo-fallback:not([hidden]) {
-      display: grid;
-      place-items: center;
-      height: 100%;
-      border-radius: 50%;
-      background: #061226;
-      font-size: 24px;
-      font-weight: 800;
-    }
+h1{
+  margin:0;
+  color:#fff;
+  font-size:27px;
+  line-height:1.2;
+  font-weight:800;
+}
 
-    .brand-badge {
-      display: inline-block;
-      padding: 4px 14px;
-      margin-bottom: 14px;
-      background: rgba(56,189,248,.14);
-      border: 1px solid rgba(56,189,248,.45);
-      border-radius: 50px;
-      color: var(--cyan);
-      font-size: 18px;
-      font-weight: 800;
-    }
+h1 span{color:var(--cyan)}
 
-    .kannada-lead {
-      margin-bottom: 12px;
-      color: var(--gold);
-      font-size: 15px;
-      font-weight: 700;
-    }
+.headline{
+  margin:14px 0 7px;
+  color:#ffe0a0;
+  font-size:15px;
+  line-height:1.5;
+  font-weight:750;
+}
 
-    h1 {
-      margin-bottom: 14px;
-      font-size: 26px;
-      font-weight: 800;
-      line-height: 1.35;
-      overflow-wrap: break-word;
-    }
+.description{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.75;
+}
 
-    .subtitle {
-      margin-bottom: 20px;
-      color: var(--text-sub);
-      font-size: 15px;
-    }
+.benefits{
+  display:grid;
+  gap:8px;
+  margin:17px 0 19px;
+  text-align:left;
+}
 
-    .academy-pillars {
-      display: grid;
-      gap: 10px;
-      padding: 14px;
-      margin-bottom: 20px;
-      background: rgba(4,11,26,.7);
-      border: 1px solid rgba(245,158,11,.2);
-      border-radius: 14px;
-      text-align: left;
-    }
+.benefit{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px;
+  border:1px solid rgba(125,213,242,.14);
+  border-radius:12px;
+  background:rgba(255,255,255,.045);
+  font-size:12px;
+  line-height:1.5;
+}
 
-    .pillar-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      font-size: 15px;
-    }
+.benefit-icon{
+  flex-shrink:0;
+  width:29px;
+  height:29px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:rgba(89,216,245,.12);
+  font-size:15px;
+}
 
-    .row-icon {
-      flex-shrink: 0;
-      color: var(--gold);
-    }
+.cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  background:linear-gradient(110deg,
+    #ffdc8c,#70e3f4,#68bfff);
+  color:#082237;
+  font:800 12px system-ui,sans-serif;
+  letter-spacing:.2px;
+  text-align:center;
+  text-decoration:none;
+  box-shadow:0 0 22px rgba(89,216,245,.32);
+  animation:glow 3.5s ease-in-out infinite;
+  transition:filter .2s,box-shadow .2s;
+}
 
-    .cta-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      min-height: 60px;
-      padding: 14px;
-      border-radius: 14px;
-      background: var(--cyan);
-      color: #061126;
-      font-size: 15px;
-      font-weight: 800;
-      text-decoration: none;
-      cursor: pointer;
-    }
+.cta:hover{
+  filter:brightness(1.06);
+  box-shadow:0 0 32px rgba(89,216,245,.55);
+}
 
-    .cta-btn:hover {
-      background: #7dd3fc;
-    }
+.cta:focus-visible{
+  outline:3px solid #fff;
+  outline-offset:4px;
+}
 
-    .cta-btn svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-      flex-shrink: 0;
-    }
+@keyframes glow{
+  0%,100%{box-shadow:0 0 15px rgba(89,216,245,.25)}
+  50%{box-shadow:0 0 28px rgba(89,216,245,.5)}
+}
 
-    .btn-subtext {
-      display: block;
-      margin-top: 3px;
-      font-size: 13px;
-      font-weight: 600;
-    }
+.countdown{
+  margin-top:13px;
+  color:#d7e8f0;
+  font-size:11.5px;
+  line-height:1.6;
+}
 
-    .disclaimer {
-      margin-top: 22px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      color: var(--text-sub);
-      font-size: 13px;
-      line-height: 1.6;
-      text-align: left;
-    }
+.countdown strong{
+  color:var(--gold);
+  font-size:15px;
+  font-variant-numeric:tabular-nums;
+}
 
-    .redirect-box {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 18px;
-      padding: 8px 14px;
-      background: rgba(56,189,248,.12);
-      border: 1px solid rgba(56,189,248,.35);
-      border-radius: 20px;
-      color: var(--cyan);
-      font-size: 14px;
-      font-weight: 600;
-    }
+.progress{
+  width:85%;
+  height:3px;
+  margin:9px auto 0;
+  overflow:hidden;
+  border-radius:10px;
+  background:rgba(255,255,255,.14);
+}
 
-    .redirect-seconds {
-      color: var(--gold);
-      font-size: 16px;
-      font-weight: 800;
-      font-variant-numeric: tabular-nums;
-    }
+.progress-bar{
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,
+    var(--gold),var(--cyan));
+  transform-origin:left;
+}
 
-    details {
-      margin-top: 18px;
-      color: var(--text-sub);
-      font-size: 13px;
-      text-align: left;
-    }
+.disclaimer{
+  margin:15px 0 0;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.12);
+  color:#c8d5e2;
+  font-size:10.5px;
+  line-height:1.7;
+}
 
-    summary {
-      cursor: pointer;
-    }
+@media(max-width:350px){
+  .card{padding:17px 14px}
+  h1{font-size:24px}
+  .benefits{margin:13px 0 15px}
+  .benefit{padding:8px}
+}
 
-    details p {
-      margin-top: 10px;
-    }
+@media(max-height:680px){
+  body{align-items:flex-start}
+}
 
-    a:focus-visible,
-    summary:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 4px;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-  </style>
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <noscript>
-    <img
-      height="1"
-      width="1"
-      style="display:none"
-      alt=""
-      src="https://www.facebook.com/tr?id=1756323715672370&amp;ev=PageView&amp;noscript=1"
-    >
-  </noscript>
+<main class="card">
 
-  <main class="card">
+  <!-- Logo -->
+  <div class="logo">
+    <img src="harish.jpg"
+      alt="Harish Academy Logo"
+      width="76" height="76"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <span class="fallback" aria-hidden="true">HA</span>
+  </div>
 
-    <div class="learning-chip">
-      ಕನ್ನಡದಲ್ಲಿ ಮಾರುಕಟ್ಟೆ ಶಿಕ್ಷಣ
+  <!-- Tagline -->
+  <p class="tagline">
+    KANNADA STOCK MARKET LEARNING
+  </p>
+
+  <!-- Brand -->
+  <h1>Harish <span>Academy</span></h1>
+
+  <!-- Headline -->
+  <h2 class="headline">
+    ಕನ್ನಡದಲ್ಲಿ ಷೇರು ಮಾರುಕಟ್ಟೆ ಕಲಿಯಿರಿ
+  </h2>
+
+  <p class="description">
+    Volume Profile, Chart Structure,
+    Breakout Concepts ಮತ್ತು Risk Management
+    ಬಗ್ಗೆ ಶೈಕ್ಷಣಿಕ ಮಾಹಿತಿಯನ್ನು ತಿಳಿಯಿರಿ.
+  </p>
+
+  <!-- Three Benefits -->
+  <div class="benefits">
+
+    <div class="benefit">
+      <span class="benefit-icon" aria-hidden="true">📊</span>
+      <span>Volume Profile &amp; Chart Understanding</span>
     </div>
 
-    <div class="avatar-wrapper">
-      <img
-        src="harish.jpg"
-        width="86"
-        height="86"
-        alt="Harish Academy"
-        decoding="async"
-        onerror="this.onerror=null;this.hidden=true;document.getElementById('logo-fallback').hidden=false;"
-      >
-      <span
-        id="logo-fallback"
-        hidden
-        aria-label="Harish Academy"
-      >HA</span>
+    <div class="benefit">
+      <span class="benefit-icon" aria-hidden="true">📘</span>
+      <span>Breakout Concepts &amp; Market Structure</span>
     </div>
 
-    <div class="brand-badge" lang="en">
-      Harish Academy
+    <div class="benefit">
+      <span class="benefit-icon" aria-hidden="true">🛡️</span>
+      <span>Risk Awareness &amp; Disciplined Learning</span>
     </div>
 
-    <p class="kannada-lead">
-      ನಮಸ್ಕಾರ! ಕನ್ನಡದಲ್ಲೇ ಕಲಿಯಿರಿ ಪ್ರೈಸ್ ಆಕ್ಷನ್ ತಂತ್ರಗಳು
-    </p>
+  </div>
 
-    <h1 lang="en">
-      VOLUME PROFILE &amp; STRUCTURE FRAMEWORK
-    </h1>
+  <!-- CTA -->
+  <a id="joinBtn"
+     class="cta"
+     href="https://t.me/+bud8S1WiCZU3MzJl">
+    JOIN FREE TELEGRAM CHANNEL
+  </a>
 
-    <p class="subtitle">
-      ವಾಲ್ಯೂಮ್ ಪ್ರೊಫೈಲ್, ಸಪೋರ್ಟ್ ಲೆವೆಲ್ಸ್ ಮತ್ತು ರಿಸ್ಕ್
-      ನಿರ್ವಹಣೆಯ ಮೂಲಭೂತ ಪರಿಕಲ್ಪನೆಗಳನ್ನು ಕನ್ನಡದಲ್ಲಿ ತಿಳಿಯಿರಿ.
-    </p>
-
-    <div class="academy-pillars">
-
-      <div class="pillar-row">
-        <span class="row-icon" aria-hidden="true">✦</span>
-        <span>
-          <strong lang="en">Volume Profile:</strong>
-          Nifty &amp; BankNifty ಡೇಟಾ-ಆಧಾರಿತ ಚಾರ್ಟ್ ಜೋನ್ಸ್
-        </span>
-      </div>
-
-      <div class="pillar-row">
-        <span class="row-icon" aria-hidden="true">✦</span>
-        <span>
-          <strong lang="en">Breakout Concepts:</strong>
-          ಬ್ರೇಕ್‌ಔಟ್ ಮತ್ತು ತಪ್ಪು ಬ್ರೇಕ್‌ಔಟ್‌ಗಳ ಅಧ್ಯಯನ
-        </span>
-      </div>
-
-      <div class="pillar-row">
-        <span class="row-icon" aria-hidden="true">✦</span>
-        <span>
-          <strong lang="en">Free Community:</strong>
-          100% ಉಚಿತ ಶೈಕ್ಷಣಿಕ ಸ್ಟಡಿ ಗ್ರೂಪ್
-        </span>
-      </div>
-
+  <!-- Countdown -->
+  <div class="countdown">
+    <div id="timerText">
+      <strong id="seconds">8</strong>
+      ಸೆಕೆಂಡುಗಳಲ್ಲಿ Telegram ಸ್ವಯಂಚಾಲಿತವಾಗಿ ತೆರೆಯುತ್ತದೆ
     </div>
-
-    <!-- Manual CTA: Subscribe Event -->
-    <a
-      id="telegram-cta"
-      class="cta-btn"
-      href="https://t.me/+bud8S1WiCZU3MzJl"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
-      </svg>
-
-      <span>
-        <span lang="en">
-          JOIN FREE TELEGRAM CHANNEL
-        </span>
-        <span class="btn-subtext">
-          ಉಚಿತವಾಗಿ ಟೆಲಿಗ್ರಾಂನಲ್ಲಿ ಸೇರಿರಿ
-        </span>
-      </span>
-    </a>
-
-    <div class="disclaimer">
-      <strong>ಗಮನಿಸಿ:</strong>
-      ಈ ಚಾನಲ್ ಸಂಪೂರ್ಣವಾಗಿ ಶೈಕ್ಷಣಿಕ ಮತ್ತು ಸಂಶೋಧನಾ
-      ಉದ್ದೇಶಗಳಿಗಾಗಿ ಮಾತ್ರ. ಯಾವುದೇ ಹೂಡಿಕೆ ಅಥವಾ ಖಾತರಿಯ
-      ಲಾಭದ ಸಲಹೆ ನೀಡುವುದಿಲ್ಲ. ಷೇರು ಮಾರುಕಟ್ಟೆ ನಷ್ಟದ
-      ಅಪಾಯಗಳಿಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ.
+    <div class="progress" aria-hidden="true">
+      <div class="progress-bar" id="progressBar"></div>
     </div>
+  </div>
 
-    <!-- 8 Second Auto Redirect Countdown -->
-    <div
-      class="redirect-box"
-      id="redirect-message"
-      lang="en"
-    >
-      <span>Auto Redirecting in</span>
-      <span class="redirect-seconds" id="timer">8</span>
-      <span>sec...</span>
-    </div>
+  <!-- Disclaimer -->
+  <p class="disclaimer">
+    ಶೈಕ್ಷಣಿಕ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಮಾತ್ರ.
+    ಇದು ವೈಯಕ್ತಿಕ ಹೂಡಿಕೆ ಸಲಹೆಯಲ್ಲ.
+    ಷೇರು ಮಾರುಕಟ್ಟೆ ಮತ್ತು ಟ್ರೇಡಿಂಗ್‌ನಲ್ಲಿ
+    ನಷ್ಟದ ಅಪಾಯವಿದೆ. ಲಾಭಕ್ಕೆ ಯಾವುದೇ ಖಾತರಿ ಇಲ್ಲ.
+  </p>
 
-    <noscript>
-      <p lang="en">
-        Use the Telegram button above.
-        Automatic redirect requires JavaScript.
-      </p>
-    </noscript>
+</main>
 
-    <details>
-      <summary lang="en">
-        Privacy &amp; tracking
-      </summary>
+<script>
+(function(){
+  "use strict";
 
-      <p lang="en">
-        This page uses Meta Pixel for PageView,
-        Subscribe button-click tracking and
-        TelegramAutoRedirect tracking.
-        These events measure Telegram link-opening
-        actions, not confirmed channel membership.
-        Meta may process device, cookie and connection
-        information. Telegram and the hosting provider
-        process information under their own policies.
-      </p>
-    </details>
+  const URL="https://t.me/+bud8S1WiCZU3MzJl";
+  const DURATION=8000;
 
-  </main>
+  const btn=document.getElementById("joinBtn");
+  const seconds=document.getElementById("seconds");
+  const progress=document.getElementById("progressBar");
+  const timerText=document.getElementById("timerText");
 
-  <!-- Event Tracking & Auto Redirect -->
-  <script>
-    'use strict';
+  let finished=false;
+  let subscribeSent=false;
+  let autoSent=false;
+  let intervalId=null;
+  let timeoutId=null;
 
-    const TELEGRAM_URL =
-      'https://t.me/+bud8S1WiCZU3MzJl';
+  const deadline=Date.now()+DURATION;
 
-    const AUTO_REDIRECT_SECONDS = 8;
-
-    const cta =
-      document.getElementById('telegram-cta');
-
-    const timer =
-      document.getElementById('timer');
-
-    const message =
-      document.getElementById('redirect-message');
-
-    let redirected = false;
-    let intervalId;
-
-    function trackPixel(eventType, eventName) {
-      if (typeof window.fbq === 'function') {
-        window.fbq(eventType, eventName);
+  function track(type,name){
+    try{
+      if(typeof window.fbq==="function"){
+        window.fbq(type,name);
       }
+    }catch(e){
+      // Tracking errors never block navigation.
+    }
+  }
+
+  function stopTimer(){
+    if(intervalId!==null){
+      clearInterval(intervalId);
+      intervalId=null;
+    }
+    if(timeoutId!==null){
+      clearTimeout(timeoutId);
+      timeoutId=null;
+    }
+  }
+
+  function autoRedirect(){
+    if(finished)return;
+
+    finished=true;
+    stopTimer();
+
+    seconds.textContent="0";
+    progress.style.transform="scaleX(0)";
+    timerText.textContent="Opening Telegram...";
+
+    // Custom event only on automatic redirect.
+    if(!autoSent){
+      autoSent=true;
+      track("trackCustom","TelegramAutoRedirect");
     }
 
-    // Manual CTA: Subscribe standard event
-    cta.addEventListener('click', function () {
-      if (redirected) return;
+    window.location.assign(URL);
+  }
 
-      redirected = true;
-      clearInterval(intervalId);
+  function updateCountdown(){
+    if(finished)return;
 
-      trackPixel('track', 'Subscribe');
+    const remaining=Math.max(0,deadline-Date.now());
 
-      message.textContent = 'Opening Telegram...';
-      message.hidden = false;
-    });
+    seconds.textContent=String(
+      Math.ceil(remaining/1000)
+    );
 
-    // Auto redirect: TelegramAutoRedirect custom event
-    message.hidden = false;
-    timer.textContent = String(AUTO_REDIRECT_SECONDS);
+    progress.style.transform=
+      "scaleX("+(remaining/DURATION)+")";
 
-    const deadline =
-      Date.now() + AUTO_REDIRECT_SECONDS * 1000;
+    if(remaining<=0){
+      autoRedirect();
+    }
+  }
 
-    intervalId = window.setInterval(function () {
+  btn.addEventListener("click",function(){
+    // Preserve the anchor's normal navigation,
+    // including modified clicks and new tabs.
+    if(!finished){
+      finished=true;
+      stopTimer();
+    }
 
-      if (redirected) {
-        clearInterval(intervalId);
-        return;
-      }
+    if(!subscribeSent){
+      subscribeSent=true;
+      track("track","Subscribe");
+    }
 
-      const remaining = Math.max(
-        0,
-        Math.ceil((deadline - Date.now()) / 1000)
-      );
+    timerText.textContent="Opening Telegram...";
+  });
 
-      timer.textContent = String(remaining);
+  updateCountdown();
 
-      if (remaining === 0) {
-        redirected = true;
-        clearInterval(intervalId);
+  if(!finished){
+    intervalId=setInterval(updateCountdown,250);
+    timeoutId=setTimeout(autoRedirect,DURATION);
+  }
 
-        trackPixel(
-          'trackCustom',
-          'TelegramAutoRedirect'
-        );
+  document.addEventListener("visibilitychange",function(){
+    if(!document.hidden&&!finished){
+      updateCountdown();
+    }
+  });
 
-        window.setTimeout(function () {
-          window.location.assign(TELEGRAM_URL);
-        }, 300);
-      }
-
-    }, 250);
-  </script>
+})();
+</script>
 
 </body>
 </html>
